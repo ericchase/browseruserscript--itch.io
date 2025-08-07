@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name        dev--com.example; example userscript
-// @match       https://*.example.com/*
+// @name        @dev--io.itch; add favorite,hide buttons
+// @match       *://itch.io/*
 // @version     1.0.0
-// @description 3/31/2025, 5:38:51 PM
+// @description 5/5/2024, 7:21:16 PM
 // @run-at      document-start
 // @grant       none
-// @homepageURL https://github.com/ericchase-library/ts-templates-browser-userscript
+// @homepageURL https://github.com/ericchase/browseruserscripts
 // ==/UserScript==
 
 // src/lib/ericchase/WebPlatform_DOM_Inject_Script.ts
@@ -19,8 +19,8 @@ function WebPlatform_DOM_Inject_Script(code) {
 // src/lib/server/constants.ts
 var SERVER_HOST = "127.0.0.1:8000";
 
-// src/dev--com.example; example userscript.user.ts
+// src/@dev--io.itch; add favorite,hide buttons.user.ts
 (async () => {
-  WebPlatform_DOM_Inject_Script(await fetch(`http://${SERVER_HOST}/com.example.user.js`).then((response) => response.text()));
+  WebPlatform_DOM_Inject_Script(await fetch(`http://${SERVER_HOST}/io.itch; add favorite,hide buttons.user.js`).then((response) => response.text()));
   WebPlatform_DOM_Inject_Script(await fetch(`http://${SERVER_HOST}/lib/server/hotrefresh.iife.js`).then((response) => response.text()));
 })();

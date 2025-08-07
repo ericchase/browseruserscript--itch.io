@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        dev--com.example; example userscript
+// @name        @dev--com.example; example userscript
 // @match       https://*.example.com/*
 // @version     1.0.0
 // @description 3/31/2025, 5:38:51 PM
@@ -15,6 +15,6 @@ import { WebPlatform_DOM_Inject_Script } from './lib/ericchase/WebPlatform_DOM_I
 import { SERVER_HOST } from './lib/server/constants.js';
 
 (async () => {
-  WebPlatform_DOM_Inject_Script(await fetch(`http://${SERVER_HOST}/com.example.user.js`).then((response) => response.text()));
+  WebPlatform_DOM_Inject_Script(await fetch(`http://${SERVER_HOST}/com.example; example userscript.user.js`).then((response) => response.text()));
   WebPlatform_DOM_Inject_Script(await fetch(`http://${SERVER_HOST}/lib/server/hotrefresh.iife.js`).then((response) => response.text()));
 })();
