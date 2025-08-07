@@ -1,7 +1,5 @@
 // ==UserScript==
-// @name        example.com: example userscript
-// @author      ericchase
-// @namespace   ericchase
+// @name        dev--com.example; example userscript
 // @match       https://*.example.com/*
 // @version     1.0.0
 // @description 3/31/2025, 5:38:51 PM
@@ -21,8 +19,8 @@ function WebPlatform_DOM_Inject_Script(code) {
 // src/lib/server/constants.ts
 var SERVER_HOST = "127.0.0.1:8000";
 
-// src/dev--com.example.user.ts
+// src/dev--com.example; example userscript.user.ts
 (async () => {
   WebPlatform_DOM_Inject_Script(await fetch(`http://${SERVER_HOST}/com.example.user.js`).then((response) => response.text()));
-  WebPlatform_DOM_Inject_Script(await fetch(`http://${SERVER_HOST}/dev/hotrefresh.iife.js`).then((response) => response.text()));
+  WebPlatform_DOM_Inject_Script(await fetch(`http://${SERVER_HOST}/lib/server/hotrefresh.iife.js`).then((response) => response.text()));
 })();

@@ -1,7 +1,5 @@
 // ==UserScript==
-// @name        example.com: example userscript
-// @author      ericchase
-// @namespace   ericchase
+// @name        com.example; example userscript
 // @match       https://*.example.com/*
 // @version     1.0.0
 // @description 3/31/2025, 5:38:51 PM
@@ -131,7 +129,7 @@ var rainbow_text_default = `/* Found this stylesheet at https://codepen.io/Mauri
 }
 `;
 
-// src/com.example.user.ts
+// src/com.example; example userscript.user.ts
 if (document && "adoptedStyleSheets" in document) {
   const stylesheet = new CSSStyleSheet;
   stylesheet.replaceSync(rainbow_text_default);
