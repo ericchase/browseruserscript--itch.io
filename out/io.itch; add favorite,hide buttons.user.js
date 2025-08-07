@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        io.itch; add favorite-hide buttons
+// @name        io.itch; add favorite,hide buttons
 // @match       *://itch.io/*
 // @version     1.0.0
 // @description 5/5/2024, 7:21:16 PM
@@ -228,7 +228,7 @@ class LocalStorageProvider {
   }
 }
 
-// src/io.itch; add favorite-hide buttons.user.ts
+// src/io.itch; add favorite,hide buttons.user.ts
 WebPlatform_DOM_Inject_CSS(heart_default);
 var storage = new LocalStorageProvider;
 var favorites_set = new Set(storage.get("favorites") ?? undefined);

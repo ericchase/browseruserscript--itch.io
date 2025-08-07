@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        io.itch; add favorite-hide buttons
+// @name        io.itch; add favorite,hide buttons
 // @match       *://itch.io/*
 // @version     1.0.0
 // @description 5/5/2024, 7:21:16 PM
