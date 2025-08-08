@@ -5957,7 +5957,7 @@ var require_dexie = __commonJS((exports, module) => {
 });
 
 // src/assets/collections.css
-var collections_default = `div.game_cell.collection-hidden {
+var collections_default = `div.game_cell.collection-hidden:not(:hover) {
   opacity: 10%;
 }
 `;
