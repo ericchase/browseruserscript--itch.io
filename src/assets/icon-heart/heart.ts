@@ -1,6 +1,6 @@
-import { WebPlatform_DOM_Inject_CSS } from '../lib/ericchase/WebPlatform_DOM_Inject_CSS.js';
-import { Async_WebPlatform_DOM_ReadyState_Callback } from '../lib/ericchase/WebPlatform_DOM_ReadyState_Callback.js';
-import { WebPlatform_Node_Reference_Class } from '../lib/ericchase/WebPlatform_Node_Reference_Class.js';
+import { WebPlatform_DOM_Inject_CSS } from '../../lib/ericchase/WebPlatform_DOM_Inject_CSS.js';
+import { Async_WebPlatform_DOM_ReadyState_Callback } from '../../lib/ericchase/WebPlatform_DOM_ReadyState_Callback.js';
+import { WebPlatform_Node_Reference_Class } from '../../lib/ericchase/WebPlatform_Node_Reference_Class.js';
 import heartcss from './heart.css' assert { type: 'text' };
 import heartsvg from './heart.svg' assert { type: 'text' };
 
