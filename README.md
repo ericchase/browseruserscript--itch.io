@@ -1,3 +1,19 @@
+## Update
+
+This UserScript was just a prototype to test out the idea. Unfortunately, indexeddb and other local browser storage api cannot be shared between domains/subdomains. Since individual game pages exist on subdomains of itch.io, this becomes a bit of a problem. There are some potential workarounds, but they aren't easy to build, and each of them come with their own extra problems. Therefore, I decided to start working on a full blown browser extension, instead. An extension can create storage on its own internal domain and allow content scripts on other pages to communicate and access storage via a background script/worker.
+
+In order to keep your collections while switching over to the extension, I've added a popup manager with an "export" button. You can show the popup by clicking any of the buttons with the text "manager" on top of any game cell:
+
+![alt text](export-collection.png)
+
+This should prompt a download of a `collections_database.json` file, which will contain all your collections data. The extension will have a similar popup manager with an "import" button for importing this data.
+
+If you have any problems with transferring your data, please submit an issue in this repository, and I will try to help you out.
+
+The browser extension version:
+
+- https://github.com/ericchase/browserextension--improved-itch.io-collections-manager
+
 ## About
 
 https://github.com/ericchase/browseruserscript--itch.io

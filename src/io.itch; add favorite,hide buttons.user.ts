@@ -1,17 +1,17 @@
 // ==UserScript==
 // @name        io.itch; add favorite,hide buttons
 // @match       *://itch.io/*
-// @version     1.0.0
+// @version     1.0.1
 // @description 5/5/2024, 7:21:16 PM
 // @run-at      document-start
 // @grant       none
 // @homepageURL https://github.com/ericchase/browseruserscripts
 // ==/UserScript==
 
-import collectionscss from './assets/collections.css' assert { type: 'text' };
-import { CreateEyeOffIcon } from './assets/icon-eye-off/eye-off.js';
-import { CreateHeartIcon } from './assets/icon-heart/heart.js';
+import gamecellcss from './assets/game-cell.css' assert { type: 'text' };
 import { async_addGameToCollection, async_getGameCollections, async_initCollectionsDatabase, async_removeGameFromCollection } from './database/collections.js';
+import { ShowCollectionsManager } from './lib/create-collections-manager.js';
+import { CreateEyeOffIcon, CreateHeartIcon } from './lib/create-icon-helpers.js';
 import { WebPlatform_DOM_Element_Added_Observer_Class } from './lib/ericchase/WebPlatform_DOM_Element_Added_Observer_Class.js';
 import { WebPlatform_DOM_Inject_CSS } from './lib/ericchase/WebPlatform_DOM_Inject_CSS.js';
 import { Async_WebPlatform_DOM_ReadyState_Callback } from './lib/ericchase/WebPlatform_DOM_ReadyState_Callback.js';
@@ -22,7 +22,7 @@ const processed_set = new Set<HTMLDivElement>();
 Async_WebPlatform_DOM_ReadyState_Callback({
   async DOMContentLoaded() {
     await async_initCollectionsDatabase();
-    WebPlatform_DOM_Inject_CSS(collectionscss);
+    WebPlatform_DOM_Inject_CSS(gamecellcss);
     WebPlatform_DOM_Element_Added_Observer_Class({
       selector: 'div.game_cell',
     }).subscribe(async (element) => {
@@ -91,6 +91,20 @@ async function processGameCell(game_cell: HTMLDivElement) {
         }
       });
       WebPlatform_Node_Reference_Class(game_cell.querySelector('a.title')).tryAs(HTMLAnchorElement)?.before(eye_off_icon);
+    }
+
+    // add collections manager open button
+    {
+      const button_open_manager = document.createElement('button');
+      button_open_manager.textContent = 'manager';
+      button_open_manager.style.position = 'absolute';
+      button_open_manager.style.bottom = '0.5em';
+      button_open_manager.style.right = '0.5em';
+      button_open_manager.addEventListener('click', () => {
+        console.log('OPEN MANAGER');
+        ShowCollectionsManager();
+      });
+      WebPlatform_Node_Reference_Class(game_cell.querySelector('.game_thumb')).tryAs(HTMLAnchorElement)?.after(button_open_manager);
     }
   }
 }

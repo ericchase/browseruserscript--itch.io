@@ -71,3 +71,27 @@ export async function async_removeGameFromCollection(args: { collection_name: st
     }
   });
 }
+
+export async function async_exportDatabase() {
+  const data = {
+    games: await db.games.toArray(),
+    collections: await db.collections.toArray(),
+    collectionGames: await db.collectionGames.toArray(),
+  };
+  return JSON.stringify(data);
+}
+
+export async function async_importDatabase(json: string) {
+  const data = JSON.parse(json);
+  await db.transaction('rw', db.games, db.collections, db.collectionGames, async () => {
+    if (Array.isArray(data.games)) {
+      await db.games.bulkPut(data.games);
+    }
+    if (Array.isArray(data.collections)) {
+      await db.collections.bulkPut(data.collections);
+    }
+    if (Array.isArray(data.collectionGames)) {
+      await db.collectionGames.bulkPut(data.collectionGames);
+    }
+  });
+}
